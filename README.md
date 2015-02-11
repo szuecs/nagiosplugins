@@ -1,4 +1,6 @@
 # nagiosplugins
+nagiosplugins [![Build Status](https://secure.travis-ci.org/szuecs/nagiosplugins.png?branch=master)](http://travis-ci.org/szuecs/nagiosplugins)
+
 ## findbyname
 This nagiosplugin lets you count files by name and or mtime in a given
 target directory. Optionally you can get json output, if you don't
