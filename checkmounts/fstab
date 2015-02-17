@@ -1,0 +1,8 @@
+proc /proc proc defaults 0 0
+# /dev/sda1 during Installation (RescueSystem)
+UUID=0ebeb8ea-0082-4128-bc44-583991b7532b /boot ext3 defaults 0 0
+# /dev/sda2 during Installation (RescueSystem)
+UUID=39b54f1f-4ded-428e-b63e-1225a3157771 / ext3 defaults 0 0
+master.foo.com:/home  /mnt    nfs          rw,hard,defaults            0    0
+foo.bar.com:/data  /data   nfs          rw,hard,defaults            0    0
+foo.bar.com:/data1  /data1   nfs          rw,hard,defaults            0    0
