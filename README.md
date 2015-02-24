@@ -4,6 +4,22 @@
 All nagiosplugins are able to output nagiosplugin style output with
 perfdata or with --json parameter you can get json written to STDOUT.
 
+## Install
+
+Install preconditions, tested on Ubuntu trusty (ubuntu14.04):
+
+    % apt-get install golang-go git-core
+
+Setup GOPATH:
+
+    % export GOPATH=$HOME/go
+    % export GOBIN=$HOME/go/bin
+    % mkdir -p $GOPATH
+
+Install all plugins into your $GOPATH/bin with:
+
+    % go get -u github.com/szuecs/nagiosplugins/...
+
 ## checkmounts
 This nagiosplugin lets you check the state of /proc/mounts vs. the
 definition of /etc/fstab.
