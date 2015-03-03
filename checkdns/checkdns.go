@@ -1,23 +1,3 @@
-/*
-dig @ns1.google.com. SRV _xmpp-client._tcp.google.com
-;; QUESTION SECTION:
-;_xmpp-client._tcp.google.com.  IN      SRV
-
-;; ANSWER SECTION:
-_xmpp-client._tcp.google.com. 900 IN    SRV     5 0 5222 xmpp.l.google.com.
-_xmpp-client._tcp.google.com. 900 IN    SRV     20 0 5222 alt2.xmpp.l.google.com.
-_xmpp-client._tcp.google.com. 900 IN    SRV     20 0 5222 alt4.xmpp.l.google.com.
-_xmpp-client._tcp.google.com. 900 IN    SRV     20 0 5222 alt1.xmpp.l.google.com.
-_xmpp-client._tcp.google.com. 900 IN    SRV     20 0 5222 alt3.xmpp.l.google.com.
-
-;; ADDITIONAL SECTION:
-xmpp.l.google.com.      300     IN      A       74.125.28.125
-alt2.xmpp.l.google.com. 300     IN      A       74.125.28.125
-alt4.xmpp.l.google.com. 300     IN      A       74.125.28.125
-alt1.xmpp.l.google.com. 300     IN      A       74.125.28.125
-alt3.xmpp.l.google.com. 300     IN      A       74.125.28.125
-*/
-
 package main
 
 import (
@@ -43,8 +23,8 @@ func init() {
 Usage of %s
 ======================
 Example:
-  %% %s -type SRV -target _xmpp-client._tcp.google.com
-  CRITICAL - %s|count=7;2;2
+  %% %s -type SRV -tocheck _xmpp-client._tcp.google.com -target xmpp.l.google.com. -crit 200000000
+  WARNING response took too long - %s: SRV xmpp.l.google.com. |time=33657371;1000000;200000000
 
 `, bin, bin, bin)
 		flag.PrintDefaults()
@@ -52,7 +32,7 @@ Example:
 
 	flag.Int64Var(&warn, "warn", 1000000, "Warnning if request time in nano seconds is greater than given value")
 	flag.Int64Var(&crit, "crit", 2000000, "Critical if request time in nano seconds is greater than given value")
-	flag.StringVar(&typ, "type", "A", "Type of the DNS Record, A, SRV, CNAME, MX, NS, TXT")
+	flag.StringVar(&typ, "type", "A", "Type of the DNS Record, A, SRV, CNAME, MX, NS, TXT, PTR")
 	flag.StringVar(&checkname, "checkname", "Check DNS", "Name to show in nagios message.")
 	flag.StringVar(&target, "target", "173.194.72.125", "String target as result to check as dig would return.")
 	flag.StringVar(&tocheck, "tocheck", "alt3.xmpp.l.google.com.", "String to check as you would use with dig.")

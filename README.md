@@ -45,6 +45,29 @@ This checks the exposed /metrics url of
       -url="http://localhost:8081/metrics": Metrics URL.
       -warn=2: Warnning if count is greater than given value
 
+## checkdns
+This nagiosplugin lets you check if the target is within the result
+set of the given tocheck request for a given DNS Record. You can check
+the request time in nanoseconds.
+
+### Usage of checkdns
+
+    % checkdns -h
+
+    Usage of checkdns
+    ======================
+    Example:
+    % checkdns -type SRV -tocheck _xmpp-client._tcp.google.com -target xmpp.l.google.com. -crit 200000000
+    WARNING response took too long - checkdns: SRV xmpp.l.google.com. |time=33657371;1000000;200000000
+
+    -checkname="Check DNS": Name to show in nagios message.
+    -crit=2000000: Critical if request time in nano seconds is greater than given value
+    -debug=false: Enable debug output
+    -json=false: Enable json output, instead of nagios style.
+    -target="173.194.72.125": String target as result to check as dig would return.
+    -tocheck="alt3.xmpp.l.google.com.": String to check as you would use with dig.
+    -type="A": Type of the DNS Record, A, SRV, CNAME, MX, NS, TXT, PTR
+    -warn=1000000: Warnning if request time in nano seconds is greater than given value
 
 ## checkmounts
 This nagiosplugin lets you check the state of /proc/mounts vs. the
