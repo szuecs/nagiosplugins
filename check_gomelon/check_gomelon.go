@@ -30,7 +30,7 @@ Example:
   %% %s -url http://localhost:8081/metrics
   OK - Check Gomelon|Alloc=1441944 TotalAlloc=2144632 Sys=5114104 Lookups=40 Mallocs=4056 Frees=3197 HeapAlloc=1441944 HeapSys=2899968 HeapIdle=1138688 HeapInuse=1761280 HeapReleased=1064960 HeapObjects=859 StackInuse=245760 StackSys=245760 MSpanInuse=9152 MSpanSys=16384 MCacheInuse=1200 MCacheSys=16384 BuckHashSys=1440592 GCSys=202793 OtherSys=292223 NextGC=2853216 LastGC=1425328529426483999 PauseTotalNs=132651838 NumGC=31 EnableGC=true DebugGC=false
 
-`, bin, bin, bin)
+`, bin, bin)
 		flag.PrintDefaults()
 	}
 
