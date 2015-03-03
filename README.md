@@ -20,6 +20,32 @@ Install all plugins into your $GOPATH/bin with:
 
     % go get -u github.com/szuecs/nagiosplugins/...
 
+## check_gomelon
+This checks the exposed /metrics url of
+[gomelon](https://github.com/goburrow/gomelon), a go web framework.
+
+### Usage of check_gomelon
+
+    % ./check_gomelon -h
+    Check metrics url http://localhost:8081/metrics
+
+    Usage of check_gomelon
+    ======================
+    Example:
+      % check_gomelon -url http://localhost:8081/metrics
+      OK - Check Gomelon|Alloc=1441944 TotalAlloc=2144632 Sys=5114104 Lookups=40 Mallocs=4056 Frees=3197 HeapAlloc=1441944 HeapSys=2899968 HeapIdle=1138688 HeapInuse=1761280 HeapReleased=1064960 HeapObjects=859 StackInuse=245760 StackSys=245760 MSpanInuse=9152 MSpanSys=16384 MCacheInuse=1200 MCacheSys=16384 BuckHashSys=1440592 GCSys=202793 OtherSys=292223 NextGC=2853216 LastGC=1425328529426483999 PauseTotalNs=132651838 NumGC=31 EnableGC=true DebugGC=false
+
+      -checkname="Check Gomelon": Name to show in nagios message.
+      -crit=2: Critical if count is greater than given value
+      -debug=false: Enable debug output
+      -json=false: Enable json output, instead of nagios style.
+      -memkey="": Which item to check from runtime.Memstats.
+      -metricskey="": Which item to check from runtime.Metrics.
+      -metricstype="": Which item to check from metrics Counters or Gauges.
+      -url="http://localhost:8081/metrics": Metrics URL.
+      -warn=2: Warnning if count is greater than given value
+
+
 ## checkmounts
 This nagiosplugin lets you check the state of /proc/mounts vs. the
 definition of /etc/fstab.
